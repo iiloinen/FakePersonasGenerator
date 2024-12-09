@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Personas Generator</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/login_register.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+      function getCookie(name) {
+        const cookies = document.cookie.split("; ");
+        for (const cookie of cookies) {
+          const [key, value] = cookie.split("=");
+          if (key === name) {
+            return value;
+          }
+        }
+        return null;
+      }
+  
+      function onPageLoad() {
+        const user_id = getCookie("user_id");
+        if (user_id) {
+          console.log("Welcome back, " + user_id);
+
+        } else {
+          console.log("No username cookie found.");
+        }
+      }
+  
+      window.onload = onPageLoad;
+    </script>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">Fake Personas Generator</div>
+            <div class="buttons">
+                <button class="nav-button" id="login-button">Zaloguj się</button>
+                <button class="nav-button register" id="register-button">Zarejestruj się</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h1><span>Fake Personas <br>Generator</span></h1>
+        <br>
+        <p class="description">Narzędzie pozwalające na wygenerowanie<br>dowolnej liczby sztucznych<br>osobowości</p>
+        <a class="start-button" href="parameters.html" style="text-decoration: none;">START</a>
+    </main>
+    <br>
+    <br>
+    <p class="description">Funkcje & Rozwiązania</p>
+    <br>
+    <div class="infobox-container">
+      <div class="infobox">
+        <!-- <img src="icon1.png" alt="Data Format Icon">-->
+        <h3>Wygodny format zapisu danych</h3>
+      </div>
+      <div class="infobox">
+        <!--<img src="icon2.png" alt="Quick Generation Icon">-->
+        <h3>Szybkie i łatwe generowanie</h3>
+      </div>
+      <div class="infobox">
+        <!--<img src="icon3.png" alt="Data View Icon">-->
+        <h3>Podgląd danych statystycznych</h3>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+
+    <div id="popup" class="popup">
+      <div class="popup-content">
+          <span class="close-btn" id="closePopup">&times;</span>
+
+          <!-- Login form -->
+          <div id="loginForm" class="form" style="display: none;">
+              <h2 style = "color: black;">Logowanie</h2>
+              <form>
+                  <label style = "color: black;" for="loginUsername">Nazwa użytkownika:</label>
+                  <input type="text" id="loginUsername" placeholder="Wpisz nazwę użytkownika" required>
+                  <label style = "color: black;" for="loginPassword">Hasło:</label>
+                  <input type="password" id="loginPassword" placeholder="Wpisz hasło" required>
+                  <button type="submit">Zaloguj się</button>
+              </form>
+          </div>
+
+          <!-- Register form -->
+          <div id="registerForm" class="form" style="display: none;">
+              <h2 style = "color: black;">Rejestracja</h2>
+              <form>
+                  <label style = "color: black;" for="registerUsername">Nazwa użytkownika:</label>
+                  <input type="text" id="registerUsername" placeholder="Stwórz nazwę użytkownika" required>
+                  <label style = "color: black;" for="registerEmail">E-mail:</label>
+                  <input type="email" id="registerEmail" placeholder="Wpisz adres E-mail" required>
+                  <label style = "color: black;" for="registerPassword">Hasło:</label>
+                  <input type="password" id="registerPassword" placeholder="Stwórz hasło" required>
+                  <button type="submit">Zarejestruj się</button>
+              </form>
+          </div>
+          <h3 style="color: red; display: none;" id="login_register_error"></h3>
+      </div>
+
+  </div>
+
+    <script src="/FakeDataGenerator/components/login_register.js"></script>
+    <script src="/FakeDataGenerator/components/traversal.js"></script>
+</body>
+</html>

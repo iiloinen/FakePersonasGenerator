@@ -1,0 +1,163 @@
+/* MainPage Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Roboto Mono, monospace;
+    color: white;
+    background: linear-gradient(180deg, #0D0D29 0%, #1A0D29 50%, #2B0D29 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 100vh;
+    text-align: center;
+}
+
+/* Navbar Styling */
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo {
+    font-size: 18px;
+    color: #a1ffce;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #69f0ae; /* Adding a second color to emphasize "Generator" */
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-button {
+    font-family: Roboto Mono, monospace;
+    background-color: #8c52ff;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.nav-button.register {
+    background-color: #2FEE58;
+}
+
+.nav-button:hover {
+    opacity: 0.8;
+}
+
+.logo {
+    font-size: 18px;
+    background: linear-gradient(90deg, #8c52ff, #2FEE58);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;  
+    color: #2FEE58;
+}
+
+
+/* Main Content Styling */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+main h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #8c52ff, #2FEE58);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;  
+    color: #2FEE58;
+}
+
+main h1 span {
+    color: #8c52ff; /* Gradient color effect */
+}
+
+main p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #ffffffcc; /* Slight transparency */
+}
+
+.start-button {
+    background-color: #2FEE58;
+    font-weight: bold;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.start-button:hover {
+    transform: scale(1.1);
+}
+
+.infobox-container {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 20px;
+  }
+
+  .infobox {
+    background: linear-gradient(#8c52ff, #2FEE58);
+    padding: 20px;
+    border-radius: 10px;
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  .infobox img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+
+  .infobox h3 {
+    font-size: 1.1em;
+    margin-top: 10px;
+  }
+/* Footer */
+footer {
+    position: absolute;
+    bottom: 20px;
+    color: #ffffffcc;
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+
+h2 {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #ffffffcc; /* Slight transparency */
+    margin-left: 20px;
+}

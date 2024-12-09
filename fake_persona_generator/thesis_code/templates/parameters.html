@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Personas Generator - Parameters</title>
+    <link rel="stylesheet" href="../static/parameters.css">
+    <link rel="stylesheet" href="../static/login_register.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        function getCookie(name) {
+          const cookies = document.cookie.split("; ");
+          for (const cookie of cookies) {
+            const [key, value] = cookie.split("=");
+            if (key === name) {
+              return value;
+            }
+          }
+          return null;
+        }
+    
+        function onPageLoad() {
+          const user_id = getCookie("user_id");
+          if (user_id) {
+            console.log("Welcome back, " + user_id);
+
+          } else {
+            console.log("No username cookie found.");
+          }
+        }
+    
+        window.onload = onPageLoad;
+      </script>
+</head>
+<body class="parameters-page">
+    <header>
+        <header>
+            <div class="navbar">
+                <div class="logo">Fake Personas Generator</div>
+                <div class="buttons">
+                   <button class="nav-button" id="login-button">Zaloguj się</button>
+                    <button class="nav-button register" id="register-button">Zarejestruj się</button>
+                </div>
+            </div>
+        </header>
+    <main>
+        <div style="display:flex;">
+            <h1><span>Wybierz parametry</span></h1>
+            <br>
+        </div>
+
+    </main>
+    </header>
+    
+    <main>
+        <div class="dropdowns">
+            <button id ="dropdownPlec" class="dropdown-button-format, dropdown" onclick="toggleDropdown('plec')">
+                <div id = "plecHolder">Płeć</div> 
+                <div class="dropdown-content" id="plec">               
+                <div onclick="selectGender('Kobiety')">Kobiety</div>
+                <div onclick="selectGender('Mężczyźni')">Mężczyźni</div>
+                <div onclick="selectGender('Wszyscy')">Wszyscy</div>
+            </div>
+        </button>
+            <button id ="dropdownStanowisko" class="dropdown-button-format, dropdown" onclick="toggleDropdown('stanowisko')">
+                <div id = "positionHolder">Stanowisko</div> 
+                 <div class="dropdown-content" id="stanowisko">
+                     <div onclick="selectPosition('Tak')">Tak</div>
+                     <div onclick="selectPosition('Nie')">Nie</div>
+                 </div>
+             </button>
+            <button id ="dropdownFormatPliku" class="dropdown-button-format, dropdown" onclick="toggleDropdown('format')">
+               <div id = "formatPlikuTextHolder">Format pliku</div> 
+                <div class="dropdown-content" id="format">
+                    <div onclick="selectFormat('.zip')">.zip</div>
+                    <div onclick="selectFormat('.csv')">.csv</div>
+                    <div onclick="selectFormat('.txt')">.txt</div>
+                    <div onclick="selectFormat('.xlsx')">.xlsx</div>
+                </div>
+            </button>
+            <button id ="dropdownEmail" class="dropdown-button-format, dropdown" onclick="toggleDropdown('mail')">
+                <div id = "mailHolder">E-mail</div> 
+                <div class="dropdown-content" id="mail">
+                <div onclick="selectMail('Prywatny')">Prywatny</div>
+                <div onclick="selectMail('Firmowy')">Firmowy</div>
+            </div>
+        </button>
+        </button>
+        </div>
+        <div id="domainInputHolder" style="display: none;">
+        <input
+            type="text"
+            id="emailInput"
+            placeholder="Wpisz domenę w postaci @domena.adres"
+            class="input-field"
+        />
+        <button class="confirm-button" onclick="saveInput()">Zatwierdź</button>
+    </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+        </div>
+        
+        <div class="input-section">
+            <label for="sampleCount">Wybierz liczbę próbek do wygenerowania:</label>
+            <input id='sampleCountInput' class="input-field" type="number" min="1" placeholder="Wpisz liczbę próbek">
+            <button class="confirm-button" onclick='displayTable()'>Zatwierdź</button>
+        </div>
+    </main>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div style="display:flex; margin-top: 25px;">    
+        <h1>Podgląd</h1>
+    </div>
+
+    <div id="table-container" style="display: none;">
+
+        <div class="table-wrapper">
+          <table id="data-table">
+            <thead>
+              <tr>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>E-mail</th>
+                <th>Wiek</th>
+                <th>Płeć</th>
+                <th>Stanowisko</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
+        </div>
+      
+        
+      </div>
+      <div>
+        <button id="download-button" style="display:none;" onclick="downloadTable()">POBIERZ</button>
+      </div>
+      <br>
+      <br>
+      <br>
+      
+
+
+<button class="download-button" id="downloadButton" style="display: none;">POBIERZ</button>
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span class="close-btn" id="closePopup">&times;</span>
+
+        <!-- Login form -->
+        <div id="loginForm" class="form" style="display: none;">
+            <h2 style = "color: black;">Logowanie</h2>
+            <form>
+                <label style = "color: black;" for="loginUsername">Nazwa użytkownika:</label>
+                <input type="text" id="loginUsername" placeholder="Wpisz nazwę użytkownika" required>
+                <label style = "color: black;" for="loginPassword">Hasło:</label>
+                <input type="password" id="loginPassword" placeholder="Wpisz hasło" required>
+                <button type="submit">Zaloguj się</button>
+            </form>
+        </div>
+
+        <!-- Register form -->
+        <div id="registerForm" class="form" style="display: none;">
+            <h2 style = "color: black;">Rejestracja</h2>
+            <form>
+                <label style = "color: black;" for="registerUsername">Nazwa użytkownika:</label>
+                <input type="text" id="registerUsername" placeholder="Stwórz nazwę użytkownika" required>
+                <label style = "color: black;" for="registerEmail">E-mail:</label>
+                <input type="email" id="registerEmail" placeholder="Wpisz adres E-mail" required>
+                <label style = "color: black;" for="registerPassword">Hasło:</label>
+                <input type="password" id="registerPassword" placeholder="Stwórz hasło" required>
+                <button type="submit">Zarejestruj się</button>
+            </form>
+        </div>
+        <h3 style="color: red; display: none;" id="login_register_error"></h3>
+    </div>
+</div>
+<script src="../FakeDataGenerator/components/generator_app.js"></script> 
+<script src="../FakeDataGenerator/components/login_register.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+</body>
+</html>
